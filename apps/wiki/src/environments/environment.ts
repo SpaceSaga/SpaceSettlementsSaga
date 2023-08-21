@@ -1,3 +1,4 @@
 export const environment = {
-  environmentType: "default"
+  environmentType: "default",
+  apiUrl:'',
 }

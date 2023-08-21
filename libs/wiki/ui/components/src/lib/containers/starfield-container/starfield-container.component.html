@@ -1,0 +1,7 @@
+<div id="stars-container">
+  <div *ngFor="let layer of starLayers">
+    <div *ngFor="let star of layer.stars" [ngStyle]="star.style" class="star"></div>
+    <div *ngFor="let planet of layer.planets" [ngStyle]="planet.style" class="planet"></div>
+  </div>
+  <ng-content></ng-content>
+</div>

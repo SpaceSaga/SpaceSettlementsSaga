@@ -3,14 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import {WikiUiComponentsModule} from '@space-settlements-saga/wiki/ui/components';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
-  ],
+  declarations: [AppComponent,],
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(appRoutes, {initialNavigation: 'enabledBlocking'}),
+        WikiUiComponentsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })
