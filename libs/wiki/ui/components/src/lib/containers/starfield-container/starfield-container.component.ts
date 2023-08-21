@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, TemplateRef, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Input, TemplateRef, ViewChild} from '@angular/core';
 
 interface Star {
   style: {
@@ -31,7 +31,7 @@ interface Planet {
   styleUrls: ['./starfield-container.component.scss'],
 })
 export class StarfieldContainerComponent implements AfterViewInit {
-  @ViewChild('contentTemplate', { static: true }) contentTemplate?: TemplateRef<any>;
+  @Input() generatePlanets = false;
   starLayers: StarLayer[] = [];
 
   ngAfterViewInit() {
@@ -48,18 +48,20 @@ export class StarfieldContainerComponent implements AfterViewInit {
             left: `${Math.random() * 100}%`,
             animationDuration: `${layer.speed}s`,
             animationDelay: `${Math.random() * -layer.speed}s`,
-            opacity: `${(i + 1) * 0.2}`,
+            opacity: `${(i + 1) * 0.25}`,
           },
         });
       }
-      for (let k = 0; k < 5; k++) {
-        layer.planets.push({
-          style: {
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            backgroundColor: `hsl(${Math.random() * 360}, 100%, ${Math.random() * 30 + 50}%)`,
-          },
-        });
+      if (this.generatePlanets) {
+        for (let k = 0; k < 5; k++) {
+          layer.planets.push({
+            style: {
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              backgroundColor: `hsl(${Math.random() * 360}, 100%, ${Math.random() * 30 + 50}%)`,
+            },
+          });
+        }
       }
       this.starLayers.push(layer);
     }
