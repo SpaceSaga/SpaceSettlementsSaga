@@ -3,15 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
-import {WikiUiComponentsModule} from '@space-settlements-saga/wiki/ui/components';
 
 @NgModule({
-  declarations: [AppComponent,],
-    imports: [
-        BrowserModule,
-        RouterModule.forRoot(appRoutes, {initialNavigation: 'enabledBlocking'}),
-        WikiUiComponentsModule,
-    ],
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
