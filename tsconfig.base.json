@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@space-settlements-saga/markdown-reader": [
+        "libs/markdown-reader/src/index.ts"
+      ],
       "@space-settlements-saga/wiki/ui/components": [
         "libs/wiki/ui/components/src/index.ts"
       ]
